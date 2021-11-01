@@ -1,2 +1,4 @@
 C-no, ya que no interaccionan entre ellos.
 D-no.
+a) Primero debemos tirar el comando git remote add upstream y el link del repositorio original. Luego nos aseguramos que estamos en la rama adecuada (main) con el comando git fetch upstream. Luego ponemos el comando git rebase upstream main para obtener todas las actualizaciones del repositorio original. Por ultimo, colocamos el comando git push -f origin main para forzar el push, en caso de que no se haya actualizado el repositorio forkeado.
+b) No, ya que el fork de GAMMA es un fork del repositorio de BETA, entonces solo puede actualizarse al repositorio de Beta.
