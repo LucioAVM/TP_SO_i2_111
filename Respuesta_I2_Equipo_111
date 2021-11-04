@@ -2,3 +2,56 @@ C-no, ya que no interaccionan entre ellos.
 D-no.
 a) Primero debemos tirar el comando git remote add upstream y el link del repositorio original. Luego nos aseguramos que estamos en la rama adecuada (main) con el comando git fetch upstream. Luego ponemos el comando git rebase upstream main para obtener todas las actualizaciones del repositorio original. Por ultimo, colocamos el comando git push -f origin main para forzar el push, en caso de que no se haya actualizado el repositorio forkeado.
 b) No, ya que el fork de GAMMA es un fork del repositorio de BETA, entonces solo puede actualizarse al repositorio de Beta.
+
+e)
+1-
+BETA:
+git clone "https://github.com/LucioAVM/TP_SO_i2_111.git"
+cd TP_SO_i2_111
+vim fork.txt
+git add fork.txt
+git commit -m "fork.txt"
+git push
+
+2-
+GAMMA:
+git clone "https://github.com/LucioAVM/TP_SO_i2_111.git"
+cd TP_SO_i2_111
+echo "Laureano Aguirre 192.168.0.17 14:53" >> fork.txt
+git add fork.txt
+git commit -m "interaccion 2 gamma"
+git push
+
+ALFA:
+git clone "https://github.com/LucioAVM/TP_SO_i2_111.git"
+cd TP_SO_i2_111
+echo "Nicolas Caretti 192.168.0.174 10:25" >> fork.txt
+git add fork.txt
+git commit -m "ALFA fork.txt"
+git push
+
+4-
+BETA:
+vim NuevoDato.txt
+git add NuevoDato.txt
+git commit -m "Interaccion 2 BETA"
+git push
+
+4 bis-
+BETA:
+vim Respuesta_I2_Equipo_111.txt
+git add Respuesta_I2_Equipo_111.txt
+git commit -m "Respuestas I2 GAMMA"
+echo "Caretti Nicolas, Monsalbo Lucio, Aguirre Laureano" >> Respuesta_I2_Equipo_111.txt
+git push
+
+5-
+ALFA y GAMMA:
+git remote add upstream https://github.com/LucioAVM/TP_SO_i2_111.git
+git fetch upstream
+git checkout main
+git log
+git rebase upstream/main
+git status
+git push origin main
+git push -f origin main
